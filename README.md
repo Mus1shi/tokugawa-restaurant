@@ -2,7 +2,7 @@
 Fullstack gastronomic restaurant platform – Django REST API + React/TypeScript/MUI
 
 
-# 🏯 Tokugawa – High-End Japanese Restaurant Web App
+# Tokugawa – High-End Japanese Restaurant Web App
 
 **Tokugawa** is a fullstack web application built with **Django (Python)** on the backend and **React + TypeScript + MUI** on the frontend. It simulates an elegant, 
 high-end Japanese restaurant featuring **online reservations, menu & chef management, client reviews**, and a sleek, responsive design inspired by Japanese aesthetics.
@@ -17,16 +17,16 @@ high-end Japanese restaurant featuring **online reservations, menu & chef manage
 
 ---
 
-## 🚀 Key Features
+##  Key Features
 
-### 🔧 Backend (Django + Django REST Framework)
+###  Backend (Django + Django REST Framework)
 - API endpoints for Menu, Chefs, Reservations, Comments
 - CSRF protection, form validation, and JWT authentication (in progress)
 - Modular models: `Menu`, `Chef`, `Category`, `Reservation`, `Comment`
 - Admin dashboard customization
 - Internationalization ready (EN/FR/JP planned)
 
-### 🎨 Frontend (React + TypeScript + MUI + Tailwind CSS)
+###  Frontend (React + TypeScript + MUI + Tailwind CSS)
 - Fully responsive, premium design
 - Interactive & secure reservation form
 - Modular components (Cards, Buttons, Navbar, etc.)
@@ -36,7 +36,7 @@ high-end Japanese restaurant featuring **online reservations, menu & chef manage
 
 ---
 
-## 🧠 Tech Stack
+##  Tech Stack
 
 | Backend         | Frontend                | Tooling / DevOps         |
 |------------------|--------------------------|----------------------------|
@@ -47,7 +47,7 @@ high-end Japanese restaurant featuring **online reservations, menu & chef manage
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 tokugawa-restaurant/ │ ├── backend/ # Django backend app (API & logic) │ 
 └── restaurant/ # Models, views, serializers, forms ├── frontend/ # Django HTML templates (Phase 1) ├── tokugawa-app/ # React frontend (SPA - 
@@ -56,7 +56,7 @@ Phase 2) ├── static/ # Images, videos, global styles ├── templates/ 
 
 ---
 
-## ⚙️ Local Setup
+## ⚙ Local Setup
 
 ### Backend
 
