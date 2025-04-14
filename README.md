@@ -4,7 +4,7 @@ Fullstack gastronomic restaurant platform – Django REST API + React/TypeScript
 
 # Tokugawa – High-End Japanese Restaurant Web App
 
-**Tokugawa** is a fullstack web application built with **Django (Python)** on the backend and **React + TypeScript + MUI** on the frontend. It simulates an elegant, 
+**Tokugawa** is a fullstack web application built with **Django (Python)** on the backend and **React + TypeScript** on the frontend. It simulates an elegant, 
 high-end Japanese restaurant featuring **online reservations, menu & chef management, client reviews**, and a sleek, responsive design inspired by Japanese aesthetics.
 
 > 💡 This project showcases my fullstack skills, code structure practices, API design, and attention to user experience.
@@ -12,9 +12,7 @@ high-end Japanese restaurant featuring **online reservations, menu & chef manage
 ---
 
 ## 🌐 Live Demo
-🚧 Coming soon on Vercel + Railway  
-🎥 Demo video to be published April 2025
-
+ Coming soon on Vercel + Railway  
 ---
 
 ##  Key Features
@@ -26,12 +24,12 @@ high-end Japanese restaurant featuring **online reservations, menu & chef manage
 - Admin dashboard customization
 - Internationalization ready (EN/FR/JP planned)
 
-###  Frontend (React + TypeScript + MUI + Tailwind CSS)
+###  Frontend (React + TypeScript + Tailwind CSS)
 - Fully responsive, premium design
 - Interactive & secure reservation form
 - Modular components (Cards, Buttons, Navbar, etc.)
 - Integrated with Django templates (Phase 1)
-- Phase 2: Standalone SPA with React Router (in progress)
+- Phase 2: Standalone SPA with React Router
 - PWA-ready architecture
 
 ---
@@ -42,7 +40,7 @@ high-end Japanese restaurant featuring **online reservations, menu & chef manage
 |------------------|--------------------------|----------------------------|
 | Django 5.1       | React 18                 | Git + GitHub              |
 | Django REST API  | TypeScript               | WebStorm (JetBrains)      |
-| SQLite (dev)     | MUI + Tailwind CSS       | Vercel / Railway (coming) |
+| SQLite (dev)     | Tailwind CSS             | Vercel / Railway          |
 | Python 3.12      | React Router DOM         | `.env`, Hot Reload        |
 
 ---
@@ -56,7 +54,7 @@ Phase 2) ├── static/ # Images, videos, global styles ├── templates/ 
 
 ---
 
-## ⚙ Local Setup
+## Local Setup
 
 ### Backend
 
