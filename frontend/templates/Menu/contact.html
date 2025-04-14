@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Restaurant Tokugawa</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Navbar -->
+     <header class="flex justify-between items-center p-6">
+        <h1 class="text-yellow-500 text-3xl font-bold uppercase">TOKUGAWA</h1>
+        
+        <!-- Logo centré -->
+          <div class="flex justify-center items-center ml-20">
+    <img src="{% static 'images/logo.png' %}" alt="Image du logo" class="w-24 h-24 rounded-full border-4 border-white shadow-lg mt-4">
+</div>
+        <nav class="text-black text-opacity-50 text-2xl">
+                <ul class="flex flex-col space-y-4 text-right">
+                    <li><a href="{% url 'reservations' %}" class="hover:text-yellow-500">Réservations</a></li>
+                    <li><a href="{% url 'home' %}" class="hover:text-yellow-500">Accueil</a></li>
+                    <li><a href="{% url 'menu' %}" class="hover:text-yellow-500">Menu</a></li>
+                    <li><a href="{% url 'history' %}" class="hover:text-yellow-500">Notre Histoire Familiale</a></li>
+                </ul>
+            </nav>
+    </header>
+
+    <!-- Section Contact -->
+    <section class="container mx-auto py-12">
+        <h2 class="text-5xl font-bold text-center mb-12">Nous Contacter</h2>
+
+        <div class="flex flex-col md:flex-row justify-between space-y-12 md:space-y-0 md:space-x-12">
+            <!-- Formulaire de contact -->
+            <div class="bg-yellow-100 p-8 rounded-lg shadow-lg w-full md:w-1/2">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Envoyez-nous un message</h3>
+                <form action="{% url 'send_contact' %}" method="POST" class="space-y-6">
+                    {% csrf_token %}
+                    <div>
+                        <label for="name" class="block text-gray-700 font-medium">Nom</label>
+                        <input type="text" id="name" name="name" placeholder="Votre nom"
+                               class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-gray-700 font-medium">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Votre email"
+                               class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                    </div>
+
+                    <div>
+                        <label for="subject" class="block text-gray-700 font-medium">Sujet</label>
+                        <input type="text" id="subject" name="subject" placeholder="Objet du message"
+                               class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-gray-700 font-medium">Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Votre message"
+                                  class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="bg-yellow-500 text-white px-6 py-2 rounded-md hover:bg-yellow-600">
+                            Envoyer
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Google Map -->
+            <div class="w-full md:w-1/2">
+                <h3 class="text-2xl font-semibold text-gray-800">Où nous trouver</h3>
+                <div class="relative h-80 rounded-lg overflow-hidden shadow-lg">
+                    <iframe class="absolute top-0 left-0 w-full h-full"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2518.278327119335!2d4.3517212157480595!3d50.84673227953115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c3807aa6f5a9%3A0x28f26af36f831b02!2sGrand-Place!5e0!3m2!1sfr!2sbe!4v1602071060715!5m2!1sfr!2sbe"
+                            allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <footer class="bg-gray-900 text-white text-center p-6">
+        <div class="flex flex-col md:flex-row justify-around mb-6">
+            <div>
+                <h2 class="text-xl font-bold">Nos Politiques</h2>
+                <p class="mt-2">Cliquez ici pour en savoir plus sur les restrictions alimentaires, le code vestimentaire, et les annulations.</p>
+            </div>
+            <div>
+                <h2 class="text-xl font-bold">Newsletter</h2>
+                <p class="mt-2">Recevez un accès exclusif à nos événements et offres spéciales.</p>
+                <a href="#" class="text-yellow-500 font-bold underline hover:text-yellow-600">Inscrivez-vous à la newsletter Tokugawa</a>
+            </div>
+            <div>
+                <h2 class="text-xl font-bold">Contactez-nous</h2>
+                <p class="mt-2">Appelez-nous au (206) 283-3313 ou envoyez un email à <a href="mailto:reservations@tokugawafamily.com" class="underline text-yellow-500 hover:text-yellow-600">reservations@tokugawafamily.com</a></p>
+            </div>
+        </div>
+        <p>&copy; 1950 - 2024 Tokugawa Family. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>

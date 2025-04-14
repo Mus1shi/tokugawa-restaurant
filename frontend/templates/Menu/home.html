@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Sushi</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<body class="flex flex-col min-h-screen text-gray-300">
+    <!-- Navbar et Header -->
+    <header class="absolute top-0 right-0 z-30 w-full">
+        <div class="flex justify-end items-center p-4">
+            <nav class="text-white text-opacity-50 text-2xl">
+                <ul class="flex flex-col space-y-4 text-right">
+                    <li><a href="{% url 'reservations' %}" class="hover:text-yellow-500">Réservations</a></li>
+                    <li><a href="{% url 'menu' %}" class="hover:text-yellow-500">Menu</a></li>
+                    <li><a href="{% url 'history' %}" class="hover:text-yellow-500">Notre Histoire Familiale</a></li>
+                    <li><a href="{% url 'contact' %}" class="hover:text-yellow-500">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Video Background -->
+    <div class="relative h-screen w-full overflow-hidden">
+        <video class="absolute top-0 left-0 w-full h-full object-cover z-10" autoplay muted loop>
+            <source src="{% static 'video/tori.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Texte par-dessus la vidéo -->
+        <div class="absolute inset-0 flex flex-col justify-center items-center text-center z-20">
+<h1 id="ici" class="text-yellow-500 text-6xl font-bold">Tokugawa</h1>
+        </div>
+    </div>
+<!-- Image 1 avec paragraphe -->
+   <section class="px-4">
+        
+        <div class="flex flex-col md:flex-row-reverse items-center justify-between mt-4">
+            <div class="md:w-1/2 md:pl-8">
+                <h2 class="text-3xl font-bold mb-4 text-black">L'art du sushi</h2>
+                <p class="text-black">
+                    Nos sushis sont bien plus que des plats, ce sont de véritables œuvres d'art qui allient tradition et innovation. 
+                    Chaque bouchée est une invitation à découvrir l'essence même de la culture japonaise, où les saveurs subtiles et les textures se combinent pour créer une expérience gastronomique inoubliable. 
+                    Laissez-vous emporter par la délicatesse de chaque composition, méticuleusement pensée pour éveiller vos sens.
+                </p>
+            </div>
+            <div class="md:w-1/2">
+                <img src="{% static 'images/petit.jpg' %}" alt="Image de sushi" class="rounded-lg shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+<!-- Image 2 avec paragraphe -->
+    <section class="py-12 px-4">
+        <div class="flex flex-col md:flex-row items-center justify-between ">
+            <div class="md:w-1/2 md:pr-8">
+                <h2 class="text-3xl font-bold mb-4 text-black">Notre philosophie culinaire</h2>
+                <p class="font-serif text-black">
+                    Chez Tokugawa Family, chaque plat est préparé avec soin et précision, en respectant les traditions millénaires du Japon. 
+                    Nous sélectionnons les meilleurs ingrédients pour vous offrir une expérience gustative inoubliable. Laissez-vous transporter par l'harmonie des saveurs et l'élégance de la présentation, 
+                    dans un cadre où chaque détail est pensé pour éveiller vos sens.
+                </p>
+            </div>
+            <div class="md:w-1/2">
+                <img src="{% static 'images/onigiri.jpg' %}" alt="Image de sushi" class="rounded-lg shadow-2xl">
+             </div>
+        </div>
+    </section>
+    
+         <div class="flex justify-center items-center mb-7">
+    <img src="{% static 'images/logo.png' %}" alt="Image du logo" class="w-24 h-24 rounded-full border-4 border-white shadow-lg mt-4">
+</div>
+    
+    <section>
+    <div class="flex justify-center items-center mt-8 relative">
+        <!-- Boîte superposée sur l'image 3 -->
+        <div class="absolute top-[-170px] left-[-120px] w-100 h-55 bg-white bg-opacity-90 p-6 rounded-lg shadow-lg z-10">
+            <h2 class="text-gray-900 text-2xl font-bold">Le chef Tokugawa</h2>
+           <p class="text-gray-700 mb-6">
+            Le chef Tokugawa perpétue l'héritage de l'une des plus grandes dynasties du Japon. 
+            Alliant raffinement et savoir-faire ancestral, chaque plat est une célébration de tradition et d'innovation culinaire.
+          </p>
+        <a href="{% url 'history' %}" class="text-black py-2 px-4 rounded hover:bg-yellow-500 transition duration-300">
+            Découvrez toute l'histoire
+        </a>  </div>
+
+
+        <!-- Image 3 de fond -->
+        <img src="{% static 'images/chef2.jpg' %}" alt="Image de fond" class="w-100 h-100 object-cover rounded-lg shadow-2xl relative z-0">
+    </div>
+</section>
+
+    <!-- Comment Form -->
+   <form method="POST" class="mt-8 bg-white p-4 rounded-lg shadow text-black">
+    {% csrf_token %}
+    <h3 class="text-lg font-semibold mb-2">Partagez votre expérience</h3>
+
+    <!-- Champ "Nom" -->
+    <div class="mb-4">
+        <label for="id_name" class="block text-gray-700 font-medium mb-2">Nom</label>
+        {{ form.name }}
+    </div>
+
+    <!-- Champ "Commentaire" -->
+    <div class="mb-4">
+        <label for="id_content" class="block text-gray-700 font-medium mb-2">Commentaire</label>
+        {{ form.content }}
+    </div>
+
+    <!-- Bouton Envoyer -->
+    <button type="submit" class="bg-yellow-500 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+        Envoyer
+    </button>
+</form>
+<div class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+    <h2 class="text-2xl font-semibold mt-8 text-black">Commentaires des Clients</h2>
+    <ul class="space-y-4 mt-6 text-black">
+        {% for comment in comments %}
+            <li class="bg-gray-100 p-4 rounded-lg shadow">
+                <div>
+                    <strong>{{ comment.name }}</strong> : {{ comment.content }}
+                </div>
+                <div class="text-gray-700 text-sm">
+                    Posté le {{ comment.created_at }}
+                </div>
+                <div class="mt-2 flex space-x-4">
+                    <!-- Bouton J'aime -->
+                    <form method="POST" action="{% url 'like_comment' comment.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            J'aime ({{ comment.likes }})
+                        </button>
+                    </form>
+
+                    <!-- Bouton J'aime pas -->
+                    <form method="POST" action="{% url 'dislike_comment' comment.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            J'aime pas ({{ comment.dislikes }})
+                        </button>
+                    </form>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+
+
+      <footer class="bg-gray-900 text-white text-center p-6">
+        <div class="flex flex-col md:flex-row justify-around mb-6">
+            <div>
+                <h2 class="text-xl font-bold">Nos Politiques</h2>
+                <p class="mt-2">Cliquez ici pour en savoir plus sur les restrictions alimentaires, le code vestimentaire, et les annulations.</p>
+            </div>
+            <div>
+                <h2 class="text-xl font-bold">Newsletter</h2>
+                <p class="mt-2">Recevez un accès exclusif à nos événements et offres spéciales.</p>
+                <a href="#" class="text-yellow-500 font-bold underline hover:text-yellow-600">Inscrivez-vous à la newsletter Tokugawa</a>
+            </div>
+            <div>
+                <h2 class="text-xl font-bold">Contactez-nous</h2>
+                <p class="mt-2">Appelez-nous au (206) 283-3313 ou envoyez un email à <a href="mailto:reservations@tokugawafamily.com" class="underline text-yellow-500 hover:text-yellow-600">reservations@tokugawafamily.com</a></p>
+            </div>
+        </div>
+        <p>&copy; 1950 - 2024 Tokugawa Family. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
